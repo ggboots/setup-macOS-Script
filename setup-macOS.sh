@@ -1,76 +1,44 @@
 #!/bin/bash
+source ./sequenceScripts.sh
 
+RED="\033[31m"
+GRN="\033[0;32m"
+endl="\033[0m"
+
+while true;
+do
+echo " "
 echo " "
 echo " \\\\\ Setup Installer Script for Macos Environment ///// "
-echo " "
-read -p "Press Enter to Begin: "
-sleep 0.5
-echo " ---/ STEP:1 Package Manager \--- "
-sleep 0.8
-#xcode select (install clang compiler fro c++
-xcode-select --install
-#homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#wget + cURL
-brew install wget
-sleep 1.5
-#Node
-wget https://nodejs.org/dist/v16.17.1/node-v16.17.1.pkg
-sleep 1.5
-read -r "setup node then click RETURN"
-#mas
-brew install mas
-#git
-brew install git
+echo -e "--- ${GRN}Step 1: Package Managers ${endl}"
+echo -e "--- ${GRN}Step 2: macos plist ${endl}"
+echo -e "--- ${GRN}Step 3: System Software ${endl}"
+echo -e "--- ${GRN}Step 4: Apps ${endl}"
+echo "---------------------------"
+read -p "Press Enter to [y/n]: " option
 
-#NVM curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh -- https://github.com/nvm-sh/nvm
-#brew install pyenv -- https://github.com/pyenv/pyenv
-#brew install sdl2 -- https://github.com/libsdl-org/SDL/releases/tag/release-2.26.2
+case $option in
+    Y|y) 
+	setupSequence1
+	setupSequence2
+	setupSequence3
+	setupSequence4
+        exit
+        ;;
+    N|n) exit;;
 
-sleep 0.7
+esac
+done
 
-echo " ---/ STEP:2 .plist \--- "
-# 1- Change to Bash
-chsh -s /bin/bash
-# 2- hide .zsh message
-export BASH_SILENCE_DEPRECATION_WARNING=1
-# 3-
-defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock
-# 4-
-sudo defaults write /library/Preferences/SystemConfiguration/ com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && sudo pkill diskarbitrationd
-# 5-
-defaults write com.apple.screencapture type jpg
-
-#terminal - Pro profile/ transparency to 96%/ font change
-
-sleep 0.7
-
-echo " ---/ STEP 3: System Software \---"
-# 1- window manager
-brew install rectangle
-# 2- stats windows
-brew install --cask stats
-# 3- mongoDB
-brew tap mongodb/brew
-brew install mongodb-community@6.0
-
-#brew install iterm2
-
-echo " ---/ STEP 4: Apps \---"
-# brew install --cask firefox
-brew install homebrew/cask-version/firefox-developer-edition
-# 2- VScode
-brew install --cask visual-studio-code
-# 3- Discord
-brew install discord
-
-clear 
-echo "setup script has completed :)"
-#finalCut (mas / appstore)
-#pixelmater pro (mas / appstore)
-#figma wget app
+# setupSequence1
+# setupSequence1
+# setupSequence1
+# setupSequence1
+# prerequisite
 
 ### Resourcs ###
+# https://www.gnu.org/software/bash/manual/bash.html
+
 # https://nodejs.org/en/
 # https://brew.sh/
 # https://git-scm.com/downloads
