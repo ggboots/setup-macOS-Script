@@ -1,33 +1,32 @@
+NodePkg="node-v18.14.2.pkg"
+
 setupSequence1(){
-    echo " ---/ Downloading Package Managers \--- " 
-    sleep 0.3
+    echo " ---/ Downloading Package Managers \--- "  sleep 0.3
     
     xcode-select --install 
-    #xcode select (installs clang compiler)
-    echo " "
-    read -p "Press ENTER when xcode has downloaded"
-    echo " "
+    echo " " read -p "Press ENTER when xcode has downloaded" echo " "
+
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" #homebrew
     (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/ares/.profile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
     #wget + cURL
-    brew install wget curl
-    wget https://nodejs.org/dist/v16.17.1/node-v16.17.1.pkg
-    open node-v16.17.1.pkg
-    echo " "
-    read -r "setup node then click RETURN"
-    echo " "
+    brew install wget 
+    brew install curl
 
-    rm -r node-v16.17.1.pkg
+    wget https://nodejs.org/dist/v18.14.2/node-v18.14.2.pkg
+    open node-v18.14.2.pkg
+    echo " " read -r "setup node then click RETURN" echo " "
+
+    rm -r node-v18.14.2.pkg
 
     sleep 0.6
     brew install mas
-    brew install git
 
-    # https://www.java.com/en/download/
-    # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh -- https://github.com/nvm-sh/nvm
-    brew install python pyenv
-    brew install sdl2
+    brew install git
+    # git config --list --show-origin
+    git config --global user.name "ggboots"
+    git config --global user.email ggboots.99@gmail.com
+
     echo " "
     echo "---\ Completed downloading Package Managers /---"
     sleep 0.6
@@ -74,6 +73,8 @@ setupSequence2(){
     clear
 }
 
+# SDK
+
 setupSequence4(){
     echo " ---/ STEP 4: Apps \---"
     echo " "
@@ -107,13 +108,22 @@ setupSequence4(){
 }
 
 setupPrerequisite(){
+    # To Do list, have check marks spots
     echo "---/ Pre Requisites Check"
+    echo -e "--- ${GRN}macOS Rearrange UI ${endl}"
+    echo -e "--- ${GRN}Arrange windows and manage Launchpad ${endl}"
+    echo -e "--- ${GRN}Remove dock elements and fix widgets ${endl}"
+    echo -e "--- ${GRN}AppleID login, Desktop and Documents Enable/Disable${endl}"
+    echo -e "--- ${GRN}SSH key for github connection${endl}"
+    echo "---------------------------"
+
     # prerequisite 
     # - macOS boots
     # - arrange Windows and manage launchpad
     # - remove dock elements
     # - widgets, remove everyting and wallpaper
-    # - AppleID login and Desktop Documents enabled
+    # - AppleID login and Desktop Documents enabled/disable
     # - ssh key for github
+    read -r "Press RETURN to when complete"
 }
 
