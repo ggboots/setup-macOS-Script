@@ -1,5 +1,8 @@
 #!/bin/bash
 source ./sequenceScripts.sh
+source ./InstallerScripts/S1PackageManagers.sh
+source ./InstallerScripts/S3plistConfig.sh
+source ./InstallerScripts/S4SystemApps.sh
 
 RED="\033[31m"
 GRN="\033[0;32m"
@@ -11,18 +14,19 @@ echo " "
 echo " "
 echo " \\\\\ Setup Installer Script for Macos Environment ///// "
 echo -e "--- ${GRN}Step 1: Package Managers ${endl}"
-echo -e "--- ${GRN}Step 2: macos plist ${endl}"
-echo -e "--- ${GRN}Step 3: System Software ${endl}"
-echo -e "--- ${GRN}Step 4: Apps ${endl}"
+echo -e "--- ${GRN}Step 2: macOS Config and plist ${endl}"
+echo -e "--- ${GRN}Step 3: System Apps ${endl}"
 echo "---------------------------"
 read -p "Press Enter to [y/n]: " option
 
 case $option in
     Y|y) 
 	setupSequence1
-	setupSequence2
-	setupSequence3
-	setupSequence4
+    Stage3_setupScript
+    Stage4_setupScript
+	# setupSequence2
+	# setupSequence3
+	# setupSequence4
         exit
         ;;
     N|n) exit;;
