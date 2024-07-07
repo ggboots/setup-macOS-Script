@@ -24,9 +24,7 @@
 #     brew install mas
 
 #     brew install git
-#     # git config --list --show-origin
-#     git config --global user.name "ggboots"
-#     git config --global user.email ggboots.99@gmail.com
+
 
 #     echo " "
 #     echo "---\ Completed downloading Package Managers /---"
