@@ -1,14 +1,14 @@
 # setup-macOS-Script
 
-setup script for new install of macOS, becuase my dumbass keeps resetting Macbook and annoying to keep setting up
-to setup new OS each time, to reduce time of setting up mac and avoid jumping aroudn websites to download redundant .dmg,
+setup script for new install of macOS, becuase my dumbass keeps resetting Macbook and its annoying to keep setting up
+built setup macOS Script to reduce time of setting up mac and avoid jumping aroung websites to download redundant .dmg
 
-Current Version: Sequoia 15.0 Beta (24A5279h)
+Current Version: Sequoia 15.0 (24A335)
+
 Script Sequences:
-
-- STAGE 1 - install Package Manager and system dependent software (xcode > Homebrew > nodejs)
-- STEP 2 - .plist Config settings
-- STEP 3 - System Apps
+- STAGE 1 - install Package Manager (xcode > Homebrew > nodejs > git config)
+- STAGE 2 - Set System Preferences
+- STAGE 3 - Install Applications + CLI tools 
 
 Guide
 
