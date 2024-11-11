@@ -1,12 +1,13 @@
 SystemPreferenceScript(){
     echo " ---/ Downloading System Preferences \--- "  
+
     #Rename Mac
     sudo scutil --set ComputerName "ARES"
     sudo scutil --set LocalHostName "ARES"
     sudo scutil --set HostName "ARES"
     dscacheutil -flushcache #Reset DNS cache will change on restart
     
-    #git
+    #Git config
     git config --global user.name "ggboots"
     # git config --global user.email **********
 
@@ -27,17 +28,17 @@ SystemPreferenceScript(){
 
     # Notifications Config 
 
-    #Control Centre
-    # dont show - now playing
-    # always show - sound
+    # Control Centre Config
+    # NowPlaying - Don't show in Menu Bar 
+    # Sound - Always Show in Menu Bar
 
     # Screencapture Preferences
-    defaults write com.apple.screencapture type jpg
+    defaults write com.apple.screencapture type png 
 
-    #Display Preferences
+    # Display Preferences
     # disable - Autobrightness
 
-    #Desktop Preferences 
+    # Desktop Preferences 
     # disable - Click wallpaper to reveal desktop
 
     # Window Tiling Preferences

@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./setupScripts/1-PackageManager.sh
+source ./setupScripts/1-PackageManagers.sh
 source ./setupScripts/2-SystemPref.sh
 source ./setupScripts/3-SystemApps.sh
 
@@ -17,7 +17,7 @@ read -p "Press Enter to [Y/N]: " option
 case $option in
     Y|y) 
         PackageManagersScript
-        SystemPrefScript
+        SystemPreferenceScript
         SystemAppsScript
         exit
         ;;
